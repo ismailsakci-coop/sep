@@ -4,11 +4,23 @@ This repo contains an end-to-end pipeline for removing backing music from TTS ou
 
 #### Contents
 - [Layout](#-layout)
+- [Colab heavy run](#colab-heavy-run)
 - [Core Idea](#-core-idea)
 - [Usage Cheatsheet](#-usage-cheatsheet)
 - [Quick Listen](#-quick-listen)
 - [Pipeline Highlights & Metrics](#-pipeline)
 - [Improvement roadmap](#-todo-roadmap)
+
+### Colab Heavy Run
+
+| Parameter | Value | Why |
+|-----------|-------|-----|
+| `--shifts` | 100 | Maximizes HTDemucs equivariant averaging to suppress music beds |
+| `--segment` | 7 sec | Keeps within Transformer context window while fitting in Colab GPU RAM |
+| `--overlap` | 0.95 | Dense overlap to avoid stitching artefacts |
+| Runtime | ≈45 min on Colab A100 | Includes upload/download overhead |
+
+Outputs are stored under `google_colab_runned_arguemnts__--shifts=100 --segment 7 --overlap=0.95/` (`hevay_work.ipynb` notebook + `separated_audio_htdemucs_ft_optimized/`).
 
 ---
 
