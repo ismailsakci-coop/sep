@@ -6,6 +6,14 @@
 
 This repo contains an end-to-end pipeline for removing backing music from TTS outputs using HTDemucs-FT, MDX-Extra-Q, DNS64 denoiser, beta-Wiener post-masking, and LUFS normalization.
 
+<p align="center">
+  <img alt="Python" src="https://img.shields.io/badge/Python-3.10-3776AB?style=for-the-badge&logo=python&logoColor=ffffff">
+  <img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-2.5-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=ffffff">
+  <img alt="Bash" src="https://img.shields.io/badge/Bash-scripts-4EAA25?style=for-the-badge&logo=gnubash&logoColor=ffffff">
+  <img alt="ffmpeg" src="https://img.shields.io/badge/ffmpeg-post-0A7B1D?style=for-the-badge&logo=ffmpeg&logoColor=ffffff">
+  <img alt="Mermaid" src="https://img.shields.io/badge/Docs-Mermaid-00B4B6?style=for-the-badge&logo=markdown&logoColor=ffffff">
+</p>
+
 | Layer | Stack | Highlights |
 |-------|-------|------------|
 | Separation | Python 3.10 · PyTorch 2.5 · Torchaudio · Demucs/MDX | GPU-accelerated hybrid masking with HTDemucs-FT + MDX-Extra-Q |
