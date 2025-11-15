@@ -1,10 +1,9 @@
 ### 🎧 Speech-Only Rendering Pipeline
 
-This repo contains an end-to-end pipeline for stripping background music from large batches of TTS outputs using a fusion of heavy separator models (HTDemucs-FT + MDX-Extra-Q), DNS64 denoising, beta-Wiener post-masking, and loudness management. Everything you need to reproduce the pilot + batch run lives here.
-
+This repo contains an end-to-end pipeline for stripping background music from large batches of TTS outputs using a fusion of separator models (HTDemucs-FT + MDX-Extra-Q), DNS64 denoising, beta-Wiener post-masking, and loudness management.
 ---
 
-#### 🗂️ Top-Level Layout
+#### 🗂️ Layout
 
 ```text
 .
