@@ -59,6 +59,15 @@ This “max fusion” preserves speech details that one model captures better th
 
 ---
 
+#### 🔊 Quick Listen
+
+- [Original mix (`text_batched_generated.wav`)](data/text_batched_generated.wav)
+- [Cleanest render (`text_batched_generated__speech_only.wav`)](artifacts/text_batched_generated__speech_only.wav)
+
+Open them in any media player (or drop them into VS Code’s audio preview) for an immediate AB comparison.
+
+---
+
 #### ✅ Tips
 
 - Keep `outputs.zip` archived (in `data/`), but unzip fresh under `data/batch/outputs/` before running the batch script.
@@ -83,6 +92,14 @@ This “max fusion” preserves speech details that one model captures better th
 - STOI vs fused vocals: **0.996**
 - SI-SDR vs fused vocals: **9.36 dB**
 - WER (orig → clean): **5.9 %** (to be revisited when Görkem/Harun provide the target ASR)
+
+| Metric | Original | Cleaned |
+|--------|----------|---------|
+| LUFS (integrated) | −26.0 LUFS | −16.3 LUFS |
+| Music ↦ Speech energy | 0 dB baseline | −32.7 dB |
+| STOI (vs fused vocals) | — | 0.996 |
+| SI-SDR (vs fused vocals) | — | 9.36 dB |
+| WER (Whisper large-v3) | Reference | 5.9 % |
 
 **Overall workflow summary**
 
