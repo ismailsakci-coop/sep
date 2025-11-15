@@ -30,7 +30,9 @@ This repo contains an end-to-end pipeline for removing backing music from TTS ou
 
 #### 🧠 Core Idea
 We treat each separator as providing a soft ratio mask. For separator $i$ with vocal magnitude $V_i$ and accompaniment magnitude $A_i$, we build a fused mask on the mixture STFT $X$:
+
 $$M_\text{fused}(f,t) = \max_i \left( \frac{|V_i(f,t)|^2}{|V_i(f,t)|^2 + |A_i(f,t)|^2 + \varepsilon} \right), \qquad \hat{V}=M_\text{fused}\cdot X$$
+
 This “max fusion” keeps whichever model best captures a speech component, while suppressing accompaniment.
 
 ---
@@ -66,6 +68,17 @@ This “max fusion” keeps whichever model best captures a speech component, wh
 
 ---
 
+#### ✅ TODOs
+
+| Status | Task |
+|--------|------|
+| ⬜ | Run `evaluate.py` for each batch WAV and append the resulting metrics to the table below. |
+| ⬜ | Validate an MDX-UVR HQ3 variant and compare masked residual levels. |
+| ⬜ | Add a simple GitHub Action that re-checks LUFS/STOI/WER deltas on PRs. |
+| ⬜ | Publish a GitHub Pages demo with inline `<audio>` players for stakeholders. |
+
+---
+
 #### 📦 Pipeline
 | Stage | Components | Outcome |
 |-------|------------|---------|
@@ -87,5 +100,36 @@ This “max fusion” keeps whichever model best captures a speech component, wh
 | STOI | — | 0.996 |
 | SI-SDR | — | 9.36 dB |
 | WER | Reference | 5.9 % |
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">File</th>
+      <th style="text-align:center">Music ↦ Speech (dB)</th>
+      <th style="text-align:center">STOI</th>
+      <th style="text-align:center">SI-SDR (dB)</th>
+      <th style="text-align:center">WER</th>
+      <th style="text-align:left">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>text_batched_generated.wav</code></td>
+      <td style="text-align:center">−32.7</td>
+      <td style="text-align:center">0.996</td>
+      <td style="text-align:center">9.36</td>
+      <td style="text-align:center">5.9 %</td>
+      <td>Pilot reference – demonstrates current best pipeline.</td>
+    </tr>
+    <tr>
+      <td><em>Batch items</em></td>
+      <td style="text-align:center">TBD</td>
+      <td style="text-align:center">TBD</td>
+      <td style="text-align:center">TBD</td>
+      <td style="text-align:center">TBD</td>
+      <td>Populate by running <code>scripts/evaluate.py</code> on each cleaned file.</td>
+    </tr>
+  </tbody>
+</table>
 
 ---
