@@ -1,6 +1,16 @@
 ### 🎧 Speech-Only Rendering Pipeline
 
+<p align="center">
+  <img src="data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%20%3F%3E%3Csvg%20baseProfile%3D%22full%22%20color-interpolation%3D%22linearRGB%22%20height%3D%221200px%22%20shape-rendering%3D%22geometricPrecision%22%20version%3D%221.1%22%20viewBox%3D%220%2C0%2C1200%2C1200%22%20width%3D%221200px%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Aev%3D%22http%3A//www.w3.org/2001/xml-events%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%3Ctitle%3EStemsilver%20vector%20export%3C/title%3E%3Crect%20fill%3D%22%2304060A%22%20height%3D%221200%22%20width%3D%221200%22/%3E%3Cpath%20d%3D%22M%20880.923%20600.754%20C%20880.923%20527.319%20850.692%20454.336%20798.766%20402.410%20C%20746.840%20350.484%20673.857%20320.254%20600.423%20320.254%20C%20526.988%20320.254%20454.005%20350.484%20402.079%20402.410%20C%20350.153%20454.336%20319.923%20527.319%20319.923%20600.754%20C%20319.923%20674.188%20350.153%20747.171%20402.079%20799.097%20C%20454.005%20851.023%20526.988%20881.254%20600.423%20881.254%20C%20673.857%20881.254%20746.840%20851.023%20798.766%20799.097%20C%20850.692%20747.171%20880.923%20674.188%20880.923%20600.754%22%20fill%3D%22none%22%20stroke%3D%22%2351C6FF%22%20stroke-width%3D%2212%22%20stroke-opacity%3D%220.5%22/%3E%3C/svg%3E" width="190" alt="Stemsilver logo">
+</p>
+
 This repo contains an end-to-end pipeline for removing backing music from TTS outputs using HTDemucs-FT, MDX-Extra-Q, DNS64 denoiser, beta-Wiener post-masking, and LUFS normalization.
+
+| Layer | Stack | Highlights |
+|-------|-------|------------|
+| Separation | Python 3.10 · PyTorch 2.5 · Torchaudio · Demucs/MDX | GPU-accelerated hybrid masking with HTDemucs-FT + MDX-Extra-Q |
+| Enhancement | DNS64 · Beta-Wiener · ffmpeg | Speech denoising + LUFS shaping |
+| Tooling | Bash · Git LFS · Mermaid docs | Batch scripts, Colab notebooks, narrative docs |
 
 #### Contents
 - [Layout](#-layout)
@@ -20,15 +30,15 @@ This repo contains an end-to-end pipeline for removing backing music from TTS ou
 | `--overlap` | 0.95 | Dense overlap to avoid stitching artefacts |
 | Runtime | ≈45 min on Colab A100 | Includes upload/download overhead |
 
-Outputs are stored under `google_colab_runned_arguemnts__--shifts=100 --segment 7 --overlap=0.95/` (`hevay_work.ipynb` notebook + `separated_audio_htdemucs_ft_optimized/`).
+Outputs are stored under `google_colab_runned/` (`hevay_work.ipynb` notebook + `separated_audio_htdemucs_ft_optimized/`).
 
 **Quick listen (Colab run):**
 
 | Stem | Player |
 |------|--------|
-| text_batched_generated.wav | [▶️](https://gabalpha.github.io/read-audio/?p=https://raw.githubusercontent.com/ismailsakci-coop/stemsilver/main/google_colab_runned_arguemnts__--shifts=100 --segment 7 --overlap=0.95/separated_audio_htdemucs_ft_optimized/htdemucs_ft/text_batched_generated/text_batched_generated.wav) |
-| music_combined_optimized.wav | [▶️](https://gabalpha.github.io/read-audio/?p=https://raw.githubusercontent.com/ismailsakci-coop/stemsilver/main/google_colab_runned_arguemnts__--shifts=100 --segment 7 --overlap=0.95/separated_audio_htdemucs_ft_optimized/htdemucs_ft/text_batched_generated/music_combined_optimized.wav) |
-| vocals.wav | [▶️](https://gabalpha.github.io/read-audio/?p=https://raw.githubusercontent.com/ismailsakci-coop/stemsilver/main/google_colab_runned_arguemnts__--shifts=100 --segment 7 --overlap=0.95/separated_audio_htdemucs_ft_optimized/htdemucs_ft/text_batched_generated/vocals.wav) |
+| text_batched_generated.wav | [▶️](https://gabalpha.github.io/read-audio/?p=https://raw.githubusercontent.com/ismailsakci-coop/stemsilver/main/google_colab_runned/separated_audio_htdemucs_ft_optimized/htdemucs_ft/text_batched_generated/text_batched_generated.wav) |
+| music_combined_optimized.wav | [▶️](https://gabalpha.github.io/read-audio/?p=https://raw.githubusercontent.com/ismailsakci-coop/stemsilver/main/google_colab_runned/separated_audio_htdemucs_ft_optimized/htdemucs_ft/text_batched_generated/music_combined_optimized.wav) |
+| vocals.wav | [▶️](https://gabalpha.github.io/read-audio/?p=https://raw.githubusercontent.com/ismailsakci-coop/stemsilver/main/google_colab_runned/separated_audio_htdemucs_ft_optimized/htdemucs_ft/text_batched_generated/vocals.wav) |
 
 ---
 
