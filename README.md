@@ -18,18 +18,15 @@ This repo contains an end-to-end pipeline for stripping background music from la
 ├── run.sh                  # One-command pilot run (pipeline + evaluate)
 └── requirements.txt        # Fully pinned Python deps
 ```
-
-> **Note:** `artifacts/outputs_cleaned.zip` (≈215 MB) is not pushable to GitHub without Git LFS. Keep it locally or upload via release assets.
-
 ---
 
 #### 🧠 Core Idea
 
-We treat each separator as providing a soft ratio mask. For separator \(i\) with vocal magnitude \(V_i\) and accompaniment magnitude \(A_i\), we build a fused mask on the mixture STFT \(X\):
+We treat each separator as providing a soft ratio mask. For separator $i$ with vocal magnitude $V_i$ and accompaniment magnitude $A_i$, we build a fused mask on the mixture STFT $X$:
 
-\[
+$$
 M_\text{fused}(f, t) = \max_i \left( \frac{|V_i(f,t)|^2}{|V_i(f,t)|^2 + |A_i(f,t)|^2 + \varepsilon} \right), \qquad \hat{V} = M_\text{fused} \cdot X
-\]
+$$
 
 This “max fusion” preserves speech details that one model captures better than the other while aggressively nulling accompaniment energy.
 
