@@ -45,8 +45,6 @@ This “max fusion” keeps whichever model best captures a speech component, wh
 |--------------|--------------|
 | [▶️ Listen](https://gabalpha.github.io/read-audio/?p=https://raw.githubusercontent.com/ismailsakci-coop/sep/main/data/text_batched_generated.wav) | [▶️ Listen](https://gabalpha.github.io/read-audio/?p=https://raw.githubusercontent.com/ismailsakci-coop/sep/main/artifacts/text_batched_generated__speech_only.wav) |
 
-GitHub README'leri doğrudan WAV/MP4 oynatamadığı için gabalpha'nın hafif player'ını kullanıyoruz; bağlantılar anında ses çalıyor.
-
 ---
 
 #### 📦 Pipeline Highlights
@@ -72,18 +70,3 @@ GitHub README'leri doğrudan WAV/MP4 oynatamadığı için gabalpha'nın hafif p
 | WER | Reference | 5.9 % |
 
 ---
-
-#### 📊 Reporting & Notebooks
-- `artifacts/eval/metrics.json` – full metrics dump
-- `artifacts/ab/*` – AB snippets
-- `report/summary.md` – methods & results
-- `notebooks/pilot_analysis.ipynb` – waveform + spectrogram comparisons
-
----
-
-#### ✅ Tips
-- Always unzip new batches into `data/batch/outputs/`, keeping the folder hierarchy intact; `scripts.batch_process` mirrors it to `artifacts/cleaned/`.
-- Use Git LFS (already enabled) to push large artifacts such as `artifacts/outputs_cleaned.zip`.
-- GPU headroom: HTDemucs-FT with 4 shifts fits comfortably on RTX 4050; MDX-Extra-Q (DiffQ dependency) streams under 6 GB.
-
-Happy separating 🎶➝🗣️
