@@ -124,15 +124,36 @@ $$M_\text{fused}(f,t) = \max_i \left( \frac{|V_i(f,t)|^2}{|V_i(f,t)|^2 + |A_i(f,
 #### ✅ TODO Roadmap
 
 ```mermaid
-graph LR
-  A((Model Experiments)):::node --> B((Metrics Automation)):::node --> C((Stakeholder Demo)):::node
+flowchart LR
+  subgraph EXPERIMENTS[ ]
+    direction TB
+    A1(["HTDemucs variants"]):::experiment
+    A2(["MDX / UVR fusion"]):::experiment
+    A3(["Post-mask research"]):::experiment
+    A1 --> A2 --> A3
+  end
 
-  classDef node fill:#8ecae6,stroke:#023047,color:#072b3d,stroke-width:2px; 
-  classDef node2 fill:#ffb703,stroke:#fb8500,color:#023047,stroke-width:2px;
-  classDef node3 fill:#219ebc,stroke:#023047,color:#e0fbfc,stroke-width:2px;
-  class A node;
-  class B node2;
-  class C node3;
+  subgraph AUTOMATION[ ]
+    direction TB
+    B1(["Batch metrics job"]):::auto
+    B2(["WER guardrail CI"]):::auto
+    B3(["Release scorecard"]):::auto
+    B1 --> B2 --> B3
+  end
+
+  subgraph DELIVERY[ ]
+    direction TB
+    C1(["Stakeholder microsite"]):::delivery
+    C2(["Pages audio gallery"]):::delivery
+    C3(["One-click ZIP publish"]):::delivery
+    C1 --> C2 --> C3
+  end
+
+  EXPERIMENTS --> AUTOMATION --> DELIVERY
+
+  classDef experiment fill:#8ecae6,stroke:#023047,color:#072b3d,stroke-width:2px;
+  classDef auto fill:#ffb703,stroke:#bb3e03,color:#023047,stroke-width:2px;
+  classDef delivery fill:#219ebc,stroke:#023047,color:#e0fbfc,stroke-width:2px;
 ```
 
 | Status | Task |
