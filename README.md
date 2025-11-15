@@ -1,7 +1,7 @@
 ### 🎧 Speech-Only Rendering Pipeline
 
 <p align="center">
-  <img src="logo/stemsilver_logo.svg" width="190" alt="Stemsilver logo">
+  <img src="logo/stemsilver_logo.svg" width="190" alt="Stemsilver logo" style="background-color:#fafdff;padding:12px;border-radius:18px;box-shadow:0 4px 18px rgba(0,0,0,0.12);">
 </p>
 
 This repo contains an end-to-end pipeline for removing backing music from TTS outputs using HTDemucs-FT, MDX-Extra-Q, DNS64 denoiser, beta-Wiener post-masking, and LUFS normalization.
