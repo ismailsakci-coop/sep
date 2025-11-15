@@ -2,6 +2,13 @@
 
 This repo contains an end-to-end pipeline for removing backing music from TTS outputs using HTDemucs-FT, MDX-Extra-Q, DNS64 denoiser, beta-Wiener post-masking, and LUFS normalization.
 
+#### Contents
+- [Layout](#-layout)
+- [Core Idea](#-core-idea)
+- [Usage Cheatsheet](#-usage-cheatsheet)
+- [Quick Listen](#-quick-listen)
+- [Pipeline Highlights & Metrics](#-pipeline-highlights)
+
 ---
 
 #### 🗂️ Layout
@@ -23,9 +30,7 @@ This repo contains an end-to-end pipeline for removing backing music from TTS ou
 
 #### 🧠 Core Idea
 We treat each separator as providing a soft ratio mask. For separator $i$ with vocal magnitude $V_i$ and accompaniment magnitude $A_i$, we build a fused mask on the mixture STFT $X$:
-$$
-M_\text{fused}(f,t) = \max_i \left( \frac{|V_i(f,t)|^2}{|V_i(f,t)|^2 + |A_i(f,t)|^2 + \varepsilon} \right), \qquad \hat{V}=M_\text{fused}\cdot X
-$$
+$$M_\text{fused}(f,t) = \max_i \left( \frac{|V_i(f,t)|^2}{|V_i(f,t)|^2 + |A_i(f,t)|^2 + \varepsilon} \right), \qquad \hat{V}=M_\text{fused}\cdot X$$
 This “max fusion” keeps whichever model best captures a speech component, while suppressing accompaniment.
 
 ---
@@ -61,7 +66,7 @@ This “max fusion” keeps whichever model best captures a speech component, wh
 
 ---
 
-#### 📦 Pipeline Highlights
+#### 📦 Pipeline
 | Stage | Components | Outcome |
 |-------|------------|---------|
 | Stage A | HTDemucs-FT (4 shifts, 6 s), MDX-Extra-Q | Dual models, max-fused ratio masks applied to mix |
