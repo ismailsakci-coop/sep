@@ -22,6 +22,14 @@ This repo contains an end-to-end pipeline for removing backing music from TTS ou
 
 Outputs are stored under `google_colab_runned_arguemnts__--shifts=100 --segment 7 --overlap=0.95/` (`hevay_work.ipynb` notebook + `separated_audio_htdemucs_ft_optimized/`).
 
+**Quick listen (Colab run):**
+
+| Stem | Player |
+|------|--------|
+| text_batched_generated.wav | [▶️](https://gabalpha.github.io/read-audio/?p=https://raw.githubusercontent.com/ismailsakci-coop/stemsilver/main/google_colab_runned_arguemnts__--shifts=100 --segment 7 --overlap=0.95/separated_audio_htdemucs_ft_optimized/htdemucs_ft/text_batched_generated/text_batched_generated.wav) |
+| music_combined_optimized.wav | [▶️](https://gabalpha.github.io/read-audio/?p=https://raw.githubusercontent.com/ismailsakci-coop/stemsilver/main/google_colab_runned_arguemnts__--shifts=100 --segment 7 --overlap=0.95/separated_audio_htdemucs_ft_optimized/htdemucs_ft/text_batched_generated/music_combined_optimized.wav) |
+| vocals.wav | [▶️](https://gabalpha.github.io/read-audio/?p=https://raw.githubusercontent.com/ismailsakci-coop/stemsilver/main/google_colab_runned_arguemnts__--shifts=100 --segment 7 --overlap=0.95/separated_audio_htdemucs_ft_optimized/htdemucs_ft/text_batched_generated/vocals.wav) |
+
 ---
 
 #### 🗂️ Layout
